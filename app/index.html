@@ -25,15 +25,15 @@
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
       
 <script>
-    
+  
+
   $(function () {
-    var socket = io();
-    $('form').submit(function(e){
-      e.preventDefault(); // prevents page reloading
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
+      
+var socket = io('/');
+socket.emit('joinroom', window.location.pathname);
+socket.on("new user", function(data) {
+    console.log("New user. Total users: ", data);
+});
   });
 
 </script>
