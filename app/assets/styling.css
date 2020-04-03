@@ -144,3 +144,9 @@
     height:50px;
     width:50px;
 }
+
+#player{
+    position: fixed;
+    opacity:0;
+    
+}

@@ -50,10 +50,19 @@ io.on('connection', function(socket){
     
     
     
+    // submit video req
+    socket.on('videoplay', function(id, link){
+    
+        console.log(link);
+        socket.broadcast.emit('videoplay', id, link);
+        
+    });
+    
+    
     // video is done
     socket.on('videodone', function(room){
     
-        socket.emit('videodone', room);
+        socket.broadcast.emit('videodone', room);
         
     });
    

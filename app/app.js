@@ -1,5 +1,10 @@
 
 
+// ROOM ID
+
+const id = (location.hash).substr(1);
+      console.log(id);
+
 
 // SOCKET I.O
 
@@ -8,8 +13,6 @@ var socket = io('/');
 
   $(function () {
       
-      const id = (location.hash).substr(1);
-      console.log(id);
       
       $("#name-room").text(id);
       
@@ -55,14 +58,23 @@ var socket = io('/');
             console.log("Video in another room is finished.");
             return;
         }
-        
         stopPlaying();
-        
         
     });
       
       
-
+    socket.on('videoplay', function (room, link){
+        
+        if(id !== room){
+            console.log("Video in another room is finished.");
+            return;
+        }
+        
+        nowPlaying(link);
+        
+    });
+      
+      
 
   });
 
@@ -93,11 +105,7 @@ var player;
     // when video ends
     function onPlayerStateChange(event) {        
         if(event.data === 0) {            
-            alert('done');
-            
-              const id = (location.hash).substr(1);
-              console.log(id);
-
+           
             socket.emit('videodone', id);
         }
     }
@@ -118,11 +126,9 @@ $("#search-go").click(function(){
     
     let link = ($("#search-song").val()).split("v=")[1].substring(0, 11);
     
-    player.loadVideoById(link);
-    player.playVideo();
+    socket.emit('videoplay', id, link);
     
-    
-    
+    nowPlaying(link);
     
     // create youtube player
    
@@ -136,18 +142,27 @@ $("#search-go").click(function(){
 })
 
 
-function nowPlaying(){
+function nowPlaying(link){
 
+    player.loadVideoById(link);
+    
+    setTimeout(function(){
+        player.playVideo();
+    }, 2000);
+    
+    
+    $(".karaoke-play").fadeOut("slow");
+    $(".karaoke-search").fadeOut("slow");
     
 
-    $(".karaoke-play").css("opacity", "0");
-    $(".karaoke-play-button").fadeOut("slow");
-    
     
 }
 
 function stopPlaying(){
     
-    $(".karaoke-play").fadeOut("slow");
+    
+    $(".karaoke-play").fadeIn("slow");
+    $(".karaoke-search").fadeIn("slow");
+    
     
 }
