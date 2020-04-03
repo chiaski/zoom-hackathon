@@ -49,3 +49,19 @@ var socket = io('/');
   });
 
 
+
+
+$("#search-go").click(function(){
+    
+    if(!$("#search-song").val()){
+        alert("No search!");
+        return;
+    }
+    
+    
+    let link = ($("#search-song").val()).split("v=")[1].substring(0, 11);
+    
+    $(".karaoke-play").html(' <iframe src="https://www.youtube.com/embed/' + link + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>')
+    
+    
+})
