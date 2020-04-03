@@ -1,4 +1,8 @@
 
+
+// SOCKET I.O
+
+
   $(function () {
       
 var socket = io('/');
