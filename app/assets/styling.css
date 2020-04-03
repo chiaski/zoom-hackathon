@@ -1,5 +1,9 @@
 
-
+body{
+    background:darkgreen;
+    
+    
+}
 
 #roomname::before{
     content: "Room Name";
@@ -65,7 +69,6 @@
     width:100%;
     box-sizing: border-box;
     min-height: 100%;
-    background:darkgreen;
     display: flex;
     place-items:center;
     flex-wrap: wrap;
@@ -170,6 +173,22 @@
     height:50px;
     width:50px;
 }
+
+
+#karaoke-machine-pic{
+    position: fixed;
+  bottom: -100px; left: 50%;
+  transform: translateX(-50%);
+    height:600px;
+    width:800px;
+    text-align: center;
+    overflow:hidden;
+    z-index:-9;
+    background-image:url(machine.png);'
+    background-position: center top;
+
+}
+
 
 
 #karaoke-score{
