@@ -61,7 +61,21 @@ $("#search-go").click(function(){
     
     let link = ($("#search-song").val()).split("v=")[1].substring(0, 11);
     
-    $(".karaoke-play").html(' <iframe src="https://www.youtube.com/embed/' + link + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>')
+    $(".karaoke-play-button").html(' <iframe src="https://www.youtube.com/embed/' + link + '?rel=0;&autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>')
+    
+    $(".karaoke-play").fadeTo( "slow", 0);
+    
     
     
 })
+
+function nowPlaying(){
+ 
+    
+
+    $(".karaoke-play").css("opacity", "0");
+    $(".karaoke-play-button").fadeOut("slow");
+    
+    
+    
+}

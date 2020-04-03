@@ -49,15 +49,20 @@
 }
 
 .karaoke-cover{
-    margin: auto;
     position: absolute;
     box-sizing: border-box;
-    height:600px;
+    margin: auto;
+    
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+    
+    background-size: contain;
     background-image: url(tv.png);
-    width:100%;
+    width:750px;
+    height:600px;
     background-position: center;
     background-repeat: no-repeat;
-    z-index:1;
+    z-index:3;
     pointer-events: none;
 }
 
@@ -69,18 +74,42 @@
     height:600px;
     width:100%;
     text-align: center;
+    overflow:hidden;
+    z-index:1;
     
 }
 
-.karaoke-screen iframe{
+.karaoke-screen video{
     width:700px;
-    height:600px;
+    height:550px;
 }
+
 
 
 .karaoke-play{
     position: absolute;
-    top:50%;
-    left:50%;
-    z-index:3;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+    width:750px;
+    height:440px;
+    background-image: url(camera-static.gif);
+    z-index:2;
+}
+
+
+
+.karaoke-play-button{
+    position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(60%,-45%);
+    height:100px;
+    width:100px;
+    z-index:5;
+    display: none;
+    opacity:0.3;
+}
+
+.karaoke-play-button iframe{
+    height:50px;
+    width:50px;
 }
