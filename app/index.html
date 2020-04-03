@@ -1,43 +1,72 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Karaoke</title>
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+        
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
       
       
-      <script src="/socket.io/socket.io.js"></script>
+      <div id="game-wrapper">
+          
+          
+          
+          
+      <div id="info">
+          
+    <div class="info-piece">
+          <h3>You</h3>
+        
+      <div id="name-user">Logged Out</div>
+    </div>      
+        
+      </div>
+          
+          
+      <div id="players">
+          <h3>In Room</h3>
+          
+       </div>
+          
+      
+      <div id="intro">
+      
+      
+        <h1>Welcome to <span id="roomname"> Room Name </span></h1>
+    
+        <p>Enter your name to begin</p>
+          
+          <input type="text" name="username" placeholder="Enter a username" id="intro-name">
+          
+          
+          <input type="button" name="send" id="send" value="Join">
+      
+      </div>
+          
+          
+          
+    <h1 id="roomname">
+      Room Name
+      </h1>
+          
+      
+      
+      </div>
+      
+      
+      
+<script src="assets/socket.io.min.js"></script>
       
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
       
 <script>
-  
 
-  $(function () {
-      
-var socket = io('/');
-socket.emit('joinroom', window.location.pathname);
-socket.on("new user", function(data) {
-    console.log("New user. Total users: ", data);
-});
-  });
 
 </script>
-<!--      <script src="app.js"></script>-->
+      
+  <script src="app.js"></script>
       
       
   </body>

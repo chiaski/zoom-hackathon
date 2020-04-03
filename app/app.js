@@ -1,10 +1,12 @@
 
   $(function () {
-    var socket = io();
-    $('form').submit(function(e){
-      e.preventDefault(); // prevents page reloading
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
+      
+var socket = io('/');
+        
+      const id = (location.hash).substr(1);
+      console.log(id);
+      
+      socket.join(id);
+
   });
+
