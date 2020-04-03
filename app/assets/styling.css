@@ -1,9 +1,21 @@
 
+  @import url("https://use.typekit.net/hzd6gvv.css");
+
+
 body{
-    background:darkgreen;
-    
-    
+    background:darkgreen;    
+    font-family: fira-sans, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:1.2em;
+    line-height:1.4em;
 }
+
+
+h1{
+    font-family: abolition, sans-serif;
+}
+
 
 #roomname::before{
     content: "Room Name";
@@ -24,10 +36,19 @@ body{
     text-align: center;
 }
 
+#intro h1{
+    font-size:3em;
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    line-height: 1em;
+}
+
 #intro input[type=text]{
-    padding:.5em;
-    width:200px;
+    padding:.3em;
+    width:250px;
     height:30px;
+    font-size:1em;
 }
 
 
@@ -35,6 +56,13 @@ body{
     padding:.5em;
     width:70px;
     height:45px;
+    font-size:1em;
+}
+
+
+#intro input[type=button]:hover{
+    color:#000;
+    background:darkgreen;
 }
 
 
@@ -90,21 +118,34 @@ body{
   transform: translate(50%,-5%);
     
     height:100px;
-    width:300px;
+    width:500px;
     z-index:9;
     text-align: center;
 }
 
 .karaoke-search input[type=text]{
-    width:300px;
+    width:400px;
     height:40px;
+    font-size:.9em;
+    text-align: center;
+    padding:.2em;
+    border-radius:15px;
 }
 
 
 .karaoke-search input[type=button]{
     padding:1em;
-    width:150px;
+    font-size:.9em;
+    width:100px;
+    height:30px;
+    line-height: 0;
+    border-radius:15px;
     margin:.5em;
+}
+
+.karaoke-search input[type=button]:hover{
+    background:#000;
+    color:darkgreen;
 }
 
 
