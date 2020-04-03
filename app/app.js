@@ -2,7 +2,7 @@
 
 // ROOM ID
 
-const id = (location.hash).substr(1);
+const id = ((location.hash).substr(1)) ? (location.hash).substr(1) : 'mega karaoke';
       console.log(id);
 
 
@@ -26,6 +26,8 @@ var socket = io('/');
          if(document.getElementById("intro-name").value == "") return;
          
          var name = $("#intro-name").val();
+         $("#name-user").html(name);
+         
          console.log(name);
          
          socket.emit('newuser', id, name);
