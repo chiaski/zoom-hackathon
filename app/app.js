@@ -6,6 +6,9 @@ const id = (location.hash).substr(1);
       console.log(id);
 
 
+      $("#name-room").html(id);
+      $(".room").html(id);
+                           
 
 // SOCKET I.O
 
@@ -13,7 +16,7 @@ var socket = io('/');
 
   $(function () {
       
-      $("#name-room").text(id);
+      $("#name-room").html(id);
       
       socket.emit('joinedroom', id);
       
@@ -164,10 +167,12 @@ function nowPlaying(link){
 
 function stopPlaying(){
     
-  var countUp = new CountUp('the-score', Math.floor((Math.random() * 100) + 1));
-   
-    $("#karaoke-score").fadeIn("slow");
+//$('the-score').countUp();
     
+  $('#the-score').html(Math.floor((Math.random() * 100) + 1));
+   
+    
+    $("#karaoke-score").fadeIn("slow");
     
     setTimeout(function(){
         

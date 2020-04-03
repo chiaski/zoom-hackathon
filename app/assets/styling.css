@@ -16,7 +16,7 @@
     height: 100%;
     background: #000;
     color:#fff;
-  display: none; /*   when testing*/
+    z-index:9999;
 }
 
 
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    z-index:9;
+    z-index:999999;
 }
 
 #info div{
@@ -73,12 +73,22 @@
     height:100px;
     width:300px;
     z-index:9;
+    text-align: center;
 }
 
 .karaoke-search input[type=text]{
     width:300px;
     height:40px;
 }
+
+
+.karaoke-search input[type=button]{
+    padding:1em;
+    width:150px;
+    margin:.5em;
+}
+
+
 
 .karaoke-cover{
     position: absolute;
@@ -178,6 +188,7 @@
 #player{
     position: fixed;
     opacity:0;
+    pointer-events: none;
     z-index:9999;
 }
 
