@@ -17,8 +17,14 @@
       <div id="info">
           
     <div class="info-piece">
-          <h3>You</h3>
+          
+          <h3>Room Name</h3>
+      <div id="name-room"></div>
         
+    </div>
+          
+    <div class="info-piece">
+          <h3>You</h3>
       <div id="name-user">Logged Out</div>
     </div>      
         
@@ -28,18 +34,21 @@
       <div id="players">
           <h3>In Room</h3>
           
+          
+          <ul class="player-list">
+         </ul>
+          
        </div>
           
       
       <div id="intro">
       
       
-        <h1>Welcome to <span id="roomname"> Room Name </span></h1>
+        <h1>Welcome to <span id="name-room"> Room Name </span></h1>
     
         <p>Enter your name to begin</p>
           
           <input type="text" name="username" placeholder="Enter a username" id="intro-name">
-          
           
           <input type="button" name="send" id="send" value="Join">
       

@@ -16,19 +16,50 @@ http.listen(3000, function(){
 });
 
 
-var usernames = {};
-var rooms = ['lobby', 'A', 'B'];
-
+var rooms = {};
 
 
 io.on('connection', function(socket){
     
+
     
+    socket.on('newuser', function(room, name){
+        
+       console.log(name + " joined room " + room);
+        
+        
+       if(rooms[room] === undefined){
+           
+           rooms[room] = {};
+           rooms[room].users = [];
+           (rooms[room].users).push(name);
+           
+       } else{
+           (rooms[room].users).push(name);
+           
+       }
+        
+        console.log(rooms[room].users);
+        
+        updateRoom(room);
+        
+//         io.emit('disconnection', name + ' disconnected from ' + room);
+//       });
+        
+    });
    
+        
+
+    function updateRoom(id){
+        socket.emit('updateRoom', rooms[id].users);
+    }
+
     
               
     
 });
+
+
 
 
 //
