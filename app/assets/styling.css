@@ -16,9 +16,63 @@
     height: 100%;
     background: #000;
     color:#fff;
+  display: none; /*   when testing*/
 }
+
 
 .inner{
     margin:auto;
     max-width:600px;
+}
+
+#karaoke-container{
+    
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    box-sizing: border-box;
+    min-height: 100%;
+    background:darkgreen;
+    display: flex;
+    place-items:center;
+    flex-wrap: wrap;
+}
+
+.karaoke-machine{
+    
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+    height:600px;
+    width:100%;
+}
+
+.karaoke-cover{
+    margin: auto;
+    position: absolute;
+    box-sizing: border-box;
+    height:600px;
+    background-image: url(tv.png);
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index:1;
+    pointer-events: none;
+}
+
+.karaoke-screen{
+    position: absolute;
+    top:0;
+    left:0;
+    margin: auto;
+    height:600px;
+    width:100%;
+    text-align: center;
+    
+}
+
+.karaoke-screen iframe{
+    width:700px;
+    height:600px;
 }
