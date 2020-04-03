@@ -47,6 +47,15 @@ io.on('connection', function(socket){
 //       });
         
     });
+    
+    
+    
+    // video is done
+    socket.on('videodone', function(room){
+    
+        socket.emit('videodone', room);
+        
+    });
    
         
 
