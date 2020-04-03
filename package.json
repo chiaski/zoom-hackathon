@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "nakupo",
   "dependencies": {
+    "countup.js": "^2.0.4",
     "express": "^4.15.2",
     "lyricist": "^2.2.2",
     "socket.io": "^2.3.0"

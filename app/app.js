@@ -6,13 +6,12 @@ const id = (location.hash).substr(1);
       console.log(id);
 
 
+
 // SOCKET I.O
 
 var socket = io('/');
 
-
   $(function () {
-      
       
       $("#name-room").text(id);
       
@@ -85,7 +84,7 @@ var socket = io('/');
 
 
 var player;
-
+      
 
     function onYouTubePlayerAPIReady() {
         player = new YT.Player('player', {
@@ -109,9 +108,9 @@ var player;
             socket.emit('videodone', id);
         }
     }
-          
-      
-      
+        
+
+
 
 
 
@@ -124,14 +123,16 @@ $("#search-go").click(function(){
     }
     
     
-    let link = ($("#search-song").val()).split("v=")[1].substring(0, 11);
+    var link = ($("#search-song").val()).split("v=")[1].substring(0, 11);
     
-    socket.emit('videoplay', id, link);
     
     nowPlaying(link);
     
+    socket.emit('videoplay', id, link);
+    
+    
     // create youtube player
-   
+
     
     
 //    $(".karaoke-play-button").html(' <iframe src="https://www.youtube.com/embed/' + link + '?rel=0;&autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>')
@@ -144,6 +145,7 @@ $("#search-go").click(function(){
 
 function nowPlaying(link){
 
+    console.log(link);
     player.loadVideoById(link);
     
     setTimeout(function(){
@@ -154,15 +156,26 @@ function nowPlaying(link){
     $(".karaoke-play").fadeOut("slow");
     $(".karaoke-search").fadeOut("slow");
     
-
     
 }
 
+
+
+
 function stopPlaying(){
     
+  var countUp = new CountUp('the-score', Math.floor((Math.random() * 100) + 1));
+   
+    $("#karaoke-score").fadeIn("slow");
     
-    $(".karaoke-play").fadeIn("slow");
-    $(".karaoke-search").fadeIn("slow");
+    
+    setTimeout(function(){
+        
+        $("#karaoke-score").fadeOut("slow");
+        
+        $(".karaoke-play").fadeIn("slow");
+        $(".karaoke-search").fadeIn("slow");
+    }, 5000);
     
     
 }

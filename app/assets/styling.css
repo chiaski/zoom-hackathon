@@ -145,8 +145,39 @@
     width:50px;
 }
 
+
+#karaoke-score{
+    position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+    margin: auto;
+    height:450px;
+    width:700px;
+    text-align: center;
+    overflow:hidden;
+    z-index:3;
+    color:#fff;
+    background: #000;
+    display: none;
+}
+
+
+
+#karaoke-score h1{
+    margin-top:150px;
+    font-size:7em;
+    line-height:60px;
+}
+
+#karaoke-score h3{
+    font-size:2em;
+}
+
+
+
 #player{
     position: fixed;
     opacity:0;
-    
+    z-index:9999;
 }
+

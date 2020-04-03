@@ -74,9 +74,8 @@
       Room Name
       </h1>
           
-          <div id="karaoke-score">
           
-          </div>
+          
           
           <div class="karaoke-search">
               
@@ -93,6 +92,16 @@
           
           <div class="karaoke-machine">
               
+          <div id="karaoke-score">
+            <div class="inner">
+            <h1><span id="the-score">33</span></h1>
+              
+              <h3><span id="the-comment">TERRIBLE</span></h3>
+              </div>
+          </div>
+          
+              
+              
             <div class="karaoke-play">
                 
                 
@@ -102,8 +111,6 @@
                 </div>
               
             </div>
-              
-                <div id="player"></div>
               
               
               
@@ -124,6 +131,9 @@
           </div>
           </div>
           
+                <div id="player"></div>
+              
+          
           
         </div>
       
@@ -132,15 +142,14 @@
       
       
 <script src="assets/socket.io.min.js"></script>
+<script src="./js/countUp.min.js" type="module"></script>
       
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
           
 <script src="http://www.youtube.com/player_api"></script>
           
-<script> 
-          </script>
           
-      
+<script src="extensions.js" type="module"></script>
   <script src="app.js"></script>
       
       
