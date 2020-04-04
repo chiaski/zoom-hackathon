@@ -54,6 +54,7 @@ h1{
 
 
 #intro input[type=button]{
+    display: inline-block;
     padding:.5em;
     width:70px;
     height:45px;

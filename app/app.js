@@ -5,7 +5,6 @@
 const id = ((location.hash).substr(1)) ? (location.hash).substr(1) : 'ultimate mega karaoke fun';
       console.log(id);
 
-
       $("#name-room").html(id);
       $(".room").html(id);
                            
