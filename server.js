@@ -63,10 +63,10 @@ io.on('connection', function(socket){
     // video is done
     socket.on('videodone', function(room){
     
+        console.log("video done");
         socket.broadcast.emit('videodone', room);
         
     });
-   
         
 
     function updateRoom(id){
@@ -78,6 +78,12 @@ io.on('connection', function(socket){
    socket.on('disconnect', function() {
        
        console.log(curr_client + " " + curr_room);
+       
+       // room is completely empty
+       
+       if(!rooms[curr_room]){
+           return;
+       }
        
        let indx = (rooms[curr_room].users).indexOf(curr_client);
        

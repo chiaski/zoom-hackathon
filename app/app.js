@@ -1,4 +1,4 @@
-
+var stop = 0;
 
 // ROOM ID
 
@@ -52,15 +52,16 @@ var socket = io('/');
     });
           
       
-      
-      
-      
+    
     socket.on('videodone', function (room){
+        
+        console.log(id + " / " + room);
         
         if(id !== room){
             console.log("Video in another room is finished.");
             return;
         }
+        stop = 1;
         stopPlaying();
         
     });
@@ -107,8 +108,10 @@ var player;
 
     // when video ends
     function onPlayerStateChange(event) {        
-        if(event.data === 0) {            
-           
+        if(event.data === 0) {     
+       
+            stop = 1;
+            stopPlaying();
             socket.emit('videodone', id);
         }
     }
@@ -156,7 +159,6 @@ function nowPlaying(link){
         player.playVideo();
     }, 2000);
     
-    
     $(".karaoke-play").fadeOut("slow");
     $(".karaoke-search").fadeOut("slow");
     
@@ -170,18 +172,27 @@ function stopPlaying(){
     
 //$('the-score').countUp();
     
+    if(!stop){
+        return;
+    }
+    
+    console.log("STOP");
+    
+    let audio = new Audio('assets/videoke-score.mp3');
+    audio.play();
+    
   $('#the-score').html(Math.floor((Math.random() * 100) + 1));
    
     
     $("#karaoke-score").fadeIn("slow");
     
     setTimeout(function(){
-        
         $("#karaoke-score").fadeOut("slow");
         
         $(".karaoke-play").fadeIn("slow");
         $(".karaoke-search").fadeIn("slow");
-    }, 5000);
+        stop = 0;
+    }, 9000);
     
     
 }
