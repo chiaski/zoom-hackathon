@@ -15,11 +15,12 @@ http.listen(process.env.PORT || 3000)
 
 
 var rooms = {};
-
+var clients = {};
 
 io.on('connection', function(socket){
     
-
+    var curr_room;
+    var curr_client;
     
     socket.on('newuser', function(room, name){
         
@@ -27,7 +28,6 @@ io.on('connection', function(socket){
         
         
        if(rooms[room] === undefined){
-           
            rooms[room] = {};
            rooms[room].users = [];
            (rooms[room].users).push(name);
@@ -36,6 +36,9 @@ io.on('connection', function(socket){
            (rooms[room].users).push(name);
            
        }
+        
+        curr_room = room;
+        curr_client = name;
         
         console.log(rooms[room].users);
         
@@ -69,7 +72,22 @@ io.on('connection', function(socket){
     function updateRoom(id){
         socket.emit('updateRoom', rooms[id].users);
     }
-
+    
+    // Disconnect    
+    
+   socket.on('disconnect', function() {
+       
+       console.log(curr_client + " " + curr_room);
+       
+       let indx = (rooms[curr_room].users).indexOf(curr_client);
+       
+       if(indx > -1){
+           (rooms[curr_room].users).splice(indx, 1);
+       }
+       
+        socket.emit('updateRoom', rooms[curr_room].users);
+       
+   });
     
               
     

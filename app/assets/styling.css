@@ -12,6 +12,7 @@ body{
 }
 
 
+
 h1{
     font-family: abolition, sans-serif;
 }
@@ -65,6 +66,15 @@ h1{
     background:darkgreen;
 }
 
+h3{
+    padding-top:1.5em;
+    padding-bottom:.25em;
+    margin:0;
+}
+
+#name-room{
+    text-transform: uppercase;
+}
 
 
 
